@@ -1,7 +1,5 @@
 // ==========================================================
 // Ma liste de tâches
-// Chaque fonctionnalité correspond à une issue et à une branche.
-// Cherche les commentaires « TODO » : c'est là que tu travailles.
 // ==========================================================
 
 // Les tâches sont rangées dans ce tableau.
@@ -11,8 +9,12 @@ let taches = [
   { texte: "Terminer le projet P2", faite: false }
 ];
 
-// TODO issue « Sauvegarder les tâches » :
-// au démarrage, récupérer les tâches enregistrées dans le navigateur.
+// Sauvegarde : au démarrage, on récupère les tâches enregistrées
+// dans le navigateur (une seule fois, ici, et pas dans afficher()).
+const sauvegarde = localStorage.getItem("taches");
+if (sauvegarde) {
+  taches = JSON.parse(sauvegarde);
+}
 
 // On récupère les éléments de la page dont on a besoin.
 const liste = document.getElementById("liste");
@@ -34,42 +36,36 @@ function afficher() {
       li.classList.add("faite");
     }
 
-    // TODO issue « Cocher une tâche terminée » :
-    // un clic sur le texte inverse tache.faite, puis réaffiche.
+    // Cocher une tâche : un clic sur le texte inverse tache.faite
     texte.addEventListener("click", () => {
-     tache.faite = !tache.faite; // ! inverse vrai et faux
-    afficher();
-  });
+      tache.faite = !tache.faite; // ! inverse vrai et faux
+      afficher();
+    });
 
     li.appendChild(texte);
 
-    // TODO issue « Supprimer une tâche » :
-    // ajouter un bouton ✕ qui retire la tâche du tableau, puis réaffiche.
+    // Supprimer une tâche : un bouton ✕ retire la tâche du tableau
     const bouton = document.createElement("button");
     bouton.textContent = "✕";
     bouton.className = "supprimer";
     bouton.addEventListener("click", () => {
       taches.splice(index, 1); // retire 1 élément à la position index
       afficher();
-  });
-  li.appendChild(bouton);
+    });
+    li.appendChild(bouton);
 
     liste.appendChild(li);
   });
 
-  // TODO issue « Afficher le compteur » :
-  // écrire dans « compteur » le nombre de tâches pas encore faites.
+  // Compteur : nombre de tâches pas encore faites
   const restantes = taches.filter((t) => !t.faite).length;
   compteur.textContent = restantes + " tâche(s) restante(s)";
 
-  // TODO issue « Sauvegarder les tâches » :
-  // enregistrer le tableau dans le navigateur.
+  // Sauvegarde : on enregistre le tableau dans le navigateur
+  localStorage.setItem("taches", JSON.stringify(taches));
 }
 
-// TODO issue « Ajouter une tâche » :
-// quand on valide le formulaire, ajouter le texte du champ au tableau,
-// vider le champ, puis réafficher.
-
+// Ajouter une tâche : quand on valide le formulaire
 formulaire.addEventListener("submit", (event) => {
   event.preventDefault(); // empêche la page de se recharger
   const texte = champ.value.trim();
@@ -79,6 +75,7 @@ formulaire.addEventListener("submit", (event) => {
   taches.push({ texte: texte, faite: false });
   champ.value = "";
   afficher();
-
 });
+
+// Premier affichage au chargement de la page
 afficher();
