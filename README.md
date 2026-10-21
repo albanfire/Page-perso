@@ -1,5 +1,5 @@
 # une seule fois : votre identité
-git config --global user.name "Prénom Nom"
+git config --global user.name "Alban Guilbaud "
 git clone https://github.com/pseudo/mon-depot.git
 cd mon-depot
 # modifiez README.md, puis :
