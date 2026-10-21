@@ -1,0 +1,77 @@
+/* ==========================================================
+   Style de la page perso
+   ÉTAPE 7 : change les couleurs ci-dessous pour personnaliser
+   ta page (un code couleur = # suivi de 6 caractères).
+   ========================================================== */
+
+:root {
+  --couleur-principale: #2f6db5;   /* titres, liens, bandeau */
+  --couleur-fond: #f6f4ef;         /* fond de la page */
+  --couleur-carte: #ffffff;        /* fond des sections */
+  --couleur-texte: #1d2733;        /* texte courant */
+  --police: "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--police);
+  background: var(--couleur-fond);
+  color: var(--couleur-texte);
+  line-height: 1.6;
+}
+
+/* ---------- Bandeau du haut ---------- */
+.entete {
+  background: var(--couleur-principale);
+  color: #ffffff;
+  text-align: center;
+  padding: 64px 24px 48px;
+}
+
+.entete h1 {
+  margin: 0;
+  font-size: 2.6rem;
+}
+
+.accroche {
+  margin: 8px 0 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ---------- Contenu ---------- */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+section {
+  background: var(--couleur-carte);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--couleur-principale);
+}
+
+a {
+  color: var(--couleur-principale);
+  font-weight: 600;
+}
+
+/* ---------- Pied de page ---------- */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
