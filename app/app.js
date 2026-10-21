@@ -37,14 +37,22 @@ function afficher() {
     // TODO issue « Cocher une tâche terminée » :
     // un clic sur le texte inverse tache.faite, puis réaffiche.
     texte.addEventListener("click", () => {
-  tache.faite = !tache.faite; // ! inverse vrai et faux
-  afficher();
+     tache.faite = !tache.faite; // ! inverse vrai et faux
+    afficher();
   });
 
     li.appendChild(texte);
 
     // TODO issue « Supprimer une tâche » :
     // ajouter un bouton ✕ qui retire la tâche du tableau, puis réaffiche.
+    const bouton = document.createElement("button");
+    bouton.textContent = "✕";
+    bouton.className = "supprimer";
+    bouton.addEventListener("click", () => {
+      taches.splice(index, 1); // retire 1 élément à la position index
+      afficher();
+  });
+  li.appendChild(bouton);
 
     liste.appendChild(li);
   });
@@ -71,3 +79,4 @@ formulaire.addEventListener("submit", (event) => {
   afficher();
 
 });
+afficher();
