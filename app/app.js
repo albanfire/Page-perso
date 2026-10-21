@@ -36,6 +36,10 @@ function afficher() {
 
     // TODO issue « Cocher une tâche terminée » :
     // un clic sur le texte inverse tache.faite, puis réaffiche.
+    texte.addEventListener("click", () => {
+  tache.faite = !tache.faite; // ! inverse vrai et faux
+  afficher();
+  });
 
     li.appendChild(texte);
 
