@@ -1,0 +1,59 @@
+// ==========================================================
+// Ma liste de tâches
+// Chaque fonctionnalité correspond à une issue et à une branche.
+// Cherche les commentaires « TODO » : c'est là que tu travailles.
+// ==========================================================
+
+// Les tâches sont rangées dans ce tableau.
+// Chaque tâche est un objet : { texte: "...", faite: true ou false }
+let taches = [
+  { texte: "Découvrir Git", faite: true },
+  { texte: "Terminer le projet P2", faite: false }
+];
+
+// TODO issue « Sauvegarder les tâches » :
+// au démarrage, récupérer les tâches enregistrées dans le navigateur.
+
+// On récupère les éléments de la page dont on a besoin.
+const liste = document.getElementById("liste");
+const formulaire = document.getElementById("formulaire");
+const champ = document.getElementById("champ");
+const compteur = document.getElementById("compteur");
+
+// Affiche toutes les tâches dans la liste.
+// On l'appelle à chaque fois que le tableau « taches » change.
+function afficher() {
+  liste.innerHTML = "";
+
+  taches.forEach((tache, index) => {
+    const li = document.createElement("li");
+    const texte = document.createElement("span");
+    texte.textContent = tache.texte;
+
+    if (tache.faite) {
+      li.classList.add("faite");
+    }
+
+    // TODO issue « Cocher une tâche terminée » :
+    // un clic sur le texte inverse tache.faite, puis réaffiche.
+
+    li.appendChild(texte);
+
+    // TODO issue « Supprimer une tâche » :
+    // ajouter un bouton ✕ qui retire la tâche du tableau, puis réaffiche.
+
+    liste.appendChild(li);
+  });
+
+  // TODO issue « Afficher le compteur » :
+  // écrire dans « compteur » le nombre de tâches pas encore faites.
+
+  // TODO issue « Sauvegarder les tâches » :
+  // enregistrer le tableau dans le navigateur.
+}
+
+// TODO issue « Ajouter une tâche » :
+// quand on valide le formulaire, ajouter le texte du champ au tableau,
+// vider le champ, puis réafficher.
+
+afficher();

@@ -1,0 +1,107 @@
+/* Style de l'appli « Ma liste de tâches » */
+
+:root {
+  --couleur-principale: #2f6db5;
+  --couleur-fond: #f6f4ef;
+  --couleur-texte: #1d2733;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--couleur-fond);
+  color: var(--couleur-texte);
+}
+
+.carte {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin-top: 0;
+  color: var(--couleur-principale);
+}
+
+/* ---------- Formulaire d'ajout ---------- */
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #c9c3b6;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--couleur-principale);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ---------- Liste des tâches ---------- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4px;
+  border-bottom: 1px solid #ece8df;
+}
+
+li span {
+  cursor: pointer;
+}
+
+/* Une tâche terminée est barrée (utilisé par l'issue « Cocher une tâche ») */
+li.faite span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* Le bouton de suppression (utilisé par l'issue « Supprimer une tâche ») */
+button.supprimer {
+  background: transparent;
+  color: #b54e1c;
+  padding: 4px 8px;
+}
+
+#compteur {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.retour {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--couleur-principale);
+}
