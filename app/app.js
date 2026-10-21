@@ -56,4 +56,14 @@ function afficher() {
 // quand on valide le formulaire, ajouter le texte du champ au tableau,
 // vider le champ, puis réafficher.
 
-afficher();
+formulaire.addEventListener("submit", (event) => {
+  event.preventDefault(); // empêche la page de se recharger
+  const texte = champ.value.trim();
+  if (texte === "") {
+    return; // on n'ajoute pas une tâche vide
+  }
+  taches.push({ texte: texte, faite: false });
+  champ.value = "";
+  afficher();
+
+});
