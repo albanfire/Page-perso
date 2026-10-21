@@ -59,6 +59,8 @@ function afficher() {
 
   // TODO issue « Afficher le compteur » :
   // écrire dans « compteur » le nombre de tâches pas encore faites.
+  const restantes = taches.filter((t) => !t.faite).length;
+  compteur.textContent = restantes + " tâche(s) restante(s)";
 
   // TODO issue « Sauvegarder les tâches » :
   // enregistrer le tableau dans le navigateur.
